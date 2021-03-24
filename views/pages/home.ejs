@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+  <title>Cookies Part 4</title>
+</head>
+<body>
+  <main>
+    <h1>Welcome to Super Secret Cookie group</h1>
+    
+    <div id="login-form">
+      <h2>Login here</h2>
+      <form action="/login" method="POST">
+        <input type="text" placeholder="Enter your username" required name="username"> <br>
+        <input type="password" placeholder="Enter your password" required name="password"> <br>
+        <button type="submit">Login</button>
+        <p>Create Account <span id="btnSignup" onclick="showSignUp()">Here</span></p>
+      </form>
+      <h2>Oh shoot, look at this cool link</h2>
+      <a href="/supercoolmembersonlypage">don't you want to try it</a>
+    </div>
+    
+    <div id="signup-form" class="hideForm">
+      <h2>Create Account</h2>
+      <form action="/create" method="POST">
+        <input type="text" required name="username" placeholder="Enter your username"> <br>
+        <input type="password" required name="password" placeholder="Enter your password"> <br>
+        <!-- <input type="text" name="password2" placeholder="Confirm your password"> <br> -->
+        <button type="submit">Sign Up</button>
+        <p>Login <span id="btnSignup" onclick="showLogin()">Here</span></p>
+      </form>
+    </div>
+    <script src="../../public/script/index.js" defers></script>
+  </main>
+</body>
+</html>
