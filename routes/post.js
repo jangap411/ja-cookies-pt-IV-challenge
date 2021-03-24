@@ -19,15 +19,11 @@ router.post("/create", (req, res) => {
   };
 
   fake_db.users[user.username] = user;
-  console.log(`fake_db:${JSON.stringify(fake_db)}`);
-  console.log(body)
   res.redirect("/");
 });
 
 //login
 router.post("/login", (req, res) => {
-  console.log(req.body);
-  console.log(`login\nres.body:${JSON.stringify(req.body)}`);
   if (matchCredentials(req.body)) {
     let user = fake_db.users[req.body.username];
     
@@ -46,14 +42,12 @@ router.post("/login", (req, res) => {
       expires: new Date(Date.now() + 900000),
       httpOnly: true,
     });
-
-    console.log(`f_db_user:${req.body.username}`)
-    
+ 
     res.render("pages/members",data);
   } else {
     res.render("pages/error",msg);
   }
-  console.log(`\nPost_fake_db:${JSON.stringify(fake_db)}`);
+  
 });
 
 
