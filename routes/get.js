@@ -15,10 +15,8 @@ router.get("/", (req, res) => {
 
 //this is the protected route
 router.get("/supercoolmembersonlypage", (req, res) => {
-  console.log(`SID:${JSON.stringify(req.cookies.SID)}`);
-  let id = req.cookies.SID;
 
-  
+  let id = req.cookies.SID;  
   let session = fake_db.sessions[id];
 
   
@@ -27,8 +25,7 @@ router.get("/supercoolmembersonlypage", (req, res) => {
   } else {
     res.render("pages/err", msg);
   }
-  console.log(`\nGet_fake_db:${JSON.stringify(fake_db)}`);
-  console.log(`Memebers_SID:${JSON.stringify(session)}`);
+
 });
 
 //if something went wrong, you get sent here
@@ -43,16 +40,16 @@ router.get("/error", (req, res) => {
 
 //logout
 router.get('/logout',(req,res)=>{
-  // let id = uuidv4();
   let id = req.cookies.SID;
   
+  //delete session id
   delete fake_db.sessions.SID;
-
   //creates the cookie that holds the UUID (the session ID)
   res.cookie("SID", id, {
     expires: new Date(Date.now()),
     httpOnly: true,
   });
+  
   res.render("pages/home");
 });
 
