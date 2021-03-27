@@ -49,7 +49,6 @@ router.get('/logout',(req,res)=>{
     expires: new Date(Date.now()),
     httpOnly: true,
   });
-  
   res.render("pages/home");
 });
 
