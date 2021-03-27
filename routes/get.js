@@ -23,7 +23,7 @@ router.get("/supercoolmembersonlypage", (req, res) => {
 
   
   if (session) {
-    res.render("pages/members");
+    res.render("pages/members1");
   } else {
     res.render("pages/err", msg);
   }
